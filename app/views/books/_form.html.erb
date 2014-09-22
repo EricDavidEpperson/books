@@ -1,0 +1,35 @@
+<!--
+<div style="margin: 5px">
+  <%= link_to "New Book", new_book_path, class: "btn btn-default" %>
+</div>
+
+<% if false %>
+  <%= link_to "New Book", [:new, :book] %>
+<% end %> -->
+
+<div class="jumbotron">
+  <%= simple_form_for @book do |f| %>
+    <%= f.input :title %>
+    <%= f.input :format %>
+    <%= f.input :length %>
+    <%= f.input :release_year %>
+    <% f.input :rating %>
+      <label class="radio-inline">
+        <input type="radio" name="inlineRadioOptions" id="inlineRadio1" value="1">1
+      </label>
+      <label class="radio-inline">
+        <input type="radio" name="inlineRadioOptions" id="inlineRadio2" value="2">2
+      </label>
+      <label class="radio-inline">
+        <input type="radio" name="inlineRadioOptions" id="inlineRadio3" value="3">3
+      </label>
+      <label class="radio-inline">
+        <input type="radio" name="inlineRadioOptions" id="inlineRadio3" value="4">4
+      </label>
+      <label class="radio-inline">
+        <input type="radio" name="inlineRadioOptions" id="inlineRadio3" value="5">5
+      </label>
+    <%= f.input :photo %>
+    <%= f.submit class: "btn btn-primary"%>
+  <% end %>
+</div>

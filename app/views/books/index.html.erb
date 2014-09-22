@@ -1,2 +1,14 @@
-<h1>Books#index</h1>
-<p>Find me in app/views/books/index.html.erb</p>
+<h1>Your Books</h1>
+
+<ul>
+  <% @books.each do |book| %>
+    <li>
+      <h2><% book.title %></h2>
+      <% book.format %>
+      <% book.length %>
+      <% book.release_year %>
+      <% book.rating %>
+      - <%= link_to "Edit", [:edit, book] %>
+    </li>
+  <% end %>
+</ul>
