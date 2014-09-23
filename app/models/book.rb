@@ -1,7 +1,7 @@
 class Book < ActiveRecord::Base
 
   validates :title, presence: true, length: {maximum: 50}
-  validates :format, presence: true, inclusion: { in: %w(Hardcover Paperback Audio eBook)}
+  validates :format, presence: true#, inclusion: { in: %w(Hardcover Paperback Audio eBook)}
   validates :length, presence: true, numericality: {
     minimum: 0,
     # maximum: 5000

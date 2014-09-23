@@ -1,12 +1,27 @@
-
-<div class="jumbotron">
-  <%= simple_form_for @book do |f| %>
-    <%= f.input :title %>
-    <%= f.input :format %>
-    <%= f.input :length %>
-    <%= f.input :release_year %>
-    <%= f.input :rating %>
-    <%= f.input :photo %>
-    <%= f.submit class: "btn btn-primary"%>
-  <% end %>
+<div class="container"
+  <div class="jumbotron">
+    <%= simple_form_for @book do |f| %>
+      <%= f.input :title %>
+      <!-- <%= f.label :format %>
+      <%= f.select :format, options_for_select(%w[Hardcover Paperback Audio eBook]) %> -->
+      <%= f.input :format, collection: %w[Hardcover Paperback Audio eBook], prompt: "Please Choose One" %>
+      <%= f.input :length %>
+      <%= f.input :release_year, collection: 1800..2100 %>
+      <div class="rating" style="inline-block">
+        <%= f.label :rating %><br />
+        <%= f.label :rating, "1", :value => "1"  %>
+        <%= f.radio_button :rating, 1, :checked => true %>
+        <%= f.label :rating, "2", :value => "2" %>
+        <%= f.radio_button :rating, 2 %>
+        <%= f.label :rating, "3", :value => "3" %>
+        <%= f.radio_button :rating, 3 %>
+        <%= f.label :rating, "4", :value => "4" %>
+        <%= f.radio_button :rating, 4 %>
+        <%= f.label :rating, "5", :value => "5" %>
+        <%= f.radio_button :rating, 5 %>
+      </div>
+      <%= f.input :photo %>
+      <%= f.submit class: "btn btn-primary"%>
+    <% end %>
+  </div>
 </div>

@@ -1,5 +1,10 @@
-Show individual book details here
+<script>$.vegas({src:'http://s25.postimg.org/4k1p5cxtb/book_shelf.jpg'});</script>
 
-<h2><% @book.title %></h2>
-<%= link_to "Edit", edit_book_path(@book) %>
-<%= link_to "Delete", book_path(@book), method: :delete, "data-confirm"=>"Are you sure?" %>
+<div class="container" id="show">
+  <h1><%= @book.title %></h1>
+  <p><%= @book.format %></p>
+  <p>Pages: <%= @book.length %></p>
+  <p>Year: <%= @book.release_year %></p>
+  <p>Rating: <%= @book.rating %></p>
+  <%= link_to "Edit", edit_book_path(@book) %> | <%= link_to "Delete", book_path(@book), method: :delete, "data-confirm"=>"Are you sure?" %>
+</div>
