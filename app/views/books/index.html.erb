@@ -3,12 +3,12 @@
 <ul>
   <% @books.each do |book| %>
     <li>
-      <h2><% book.title %></h2>
-      <% book.format %>
-      <% book.length %>
-      <% book.release_year %>
-      <% book.rating %>
-      - <%= link_to "Edit", [:edit, book] %>
+      <h2><%= link_to book.title, book %></h2>
+        <!-- <h2><%= book.title %></h2> -->
+      <%= book.format %>
+      <%= book.length %>
+      <%= book.release_year %>
+      <%= book.rating %>
     </li>
   <% end %>
 </ul>

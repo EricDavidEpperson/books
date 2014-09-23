@@ -1,3 +1,5 @@
 Show individual book details here
 
-- <%= link_to "Edit", [:edit, book] %>
+<h2><% @book.title %></h2>
+<%= link_to "Edit", edit_book_path(@book) %>
+<%= link_to "Delete", book_path(@book), method: :delete, "data-confirm"=>"Are you sure?" %>
