@@ -2,9 +2,8 @@
   <div class="jumbotron">
     <%= simple_form_for @book do |f| %>
       <%= f.input :title %>
-      <!-- <%= f.label :format %>
-      <%= f.select :format, options_for_select(%w[Hardcover Paperback Audio eBook]) %> -->
       <%= f.input :format, collection: %w[Hardcover Paperback Audio eBook], prompt: "Please Choose One" %>
+      <%= f.input :author %>
       <%= f.input :length %>
       <%= f.input :release_year, collection: 1800..2100 %>
       <div class="rating" style="inline-block">
@@ -21,6 +20,7 @@
         <%= f.radio_button :rating, 5 %>
       </div>
       <%= f.input :photo %>
+      <%= f.input :description, as: :text %>
       <%= f.submit class: "btn btn-primary"%>
     <% end %>
   </div>

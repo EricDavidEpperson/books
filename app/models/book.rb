@@ -1,6 +1,6 @@
 class Book < ActiveRecord::Base
 
-  validates :title, presence: true, length: {maximum: 50}
+  validates :title, presence: true#, length: {maximum: 50}
   validates :format, presence: true#, inclusion: { in: %w(Hardcover Paperback Audio eBook)}
   validates :length, presence: true, numericality: {
     minimum: 0,
@@ -16,10 +16,11 @@ class Book < ActiveRecord::Base
     greater_than_or_equal_to: 1,
     less_than_or_equal_to: 5
     }
+  validates :author, presence: true
 
   include PgSearch
   pg_search_scope :search,
-                  :against => [:title, :format, :rating],
+                  :against => [:title, :format, :author],
                   :using => {
                     :tsearch => {
                       :prefix => true,
