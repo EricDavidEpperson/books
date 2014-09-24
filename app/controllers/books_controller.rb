@@ -1,6 +1,9 @@
 class BooksController < ApplicationController
+  respond_to :html
+
   def index
-    @books = Book.all
+    @books = Book.query(params)#.page(params[:page])-for pagination
+    respond_with @books
   end
 
   def show

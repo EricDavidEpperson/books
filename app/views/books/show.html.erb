@@ -1,10 +1,19 @@
 <script>$.vegas({src:'http://s25.postimg.org/4k1p5cxtb/book_shelf.jpg'});</script>
 
-<div class="container" id="show">
-  <h1><%= @book.title %></h1>
-  <p><%= @book.format %></p>
-  <p>Pages: <%= @book.length %></p>
-  <p>Year: <%= @book.release_year %></p>
-  <p>Rating: <%= @book.rating %></p>
-  <%= link_to "Edit", edit_book_path(@book) %> | <%= link_to "Delete", book_path(@book), method: :delete, "data-confirm"=>"Are you sure?" %>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-6 col-md-4 col-sm-offset-3 col-md-offset-4">
+      <div class="thumbnail">
+        <img data-src=<%= image_submit_tag('blank-book.jpg') %>
+        <div class="caption">
+          <h3><%= @book.title %></h3>
+          <p>Format: <%= @book.format %></p>
+          <p>Pages: <%= @book.length %> pages</p>
+          <p>Released in <%= @book.release_year %></p>
+          <p>Rating: <%= @book.rating %></p>
+          <p><%= link_to "Edit", edit_book_path(@book) %> | <%= link_to "Delete", book_path(@book), method: :delete, "data-confirm"=>"Are you sure?" %></p>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

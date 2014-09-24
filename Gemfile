@@ -44,3 +44,4 @@ end
 
 gem 'pry', group: [:development, :test]
 gem 'simple_form','3.1.0.rc2'
+gem 'pg_search'

@@ -5,9 +5,8 @@
   <%= stylesheet_link_tag    'application', media: 'all'%>
   <%= javascript_include_tag 'application'%>
 
-
-  <script type="text/javascript" src="/vegas/jquery.vegas.js"></script>
   <link rel="stylesheet" type="text/css" href="/vegas/jquery.vegas.css" />
+  <script type="text/javascript" src="/vegas/jquery.vegas.js"></script>
 
     <!-- Latest compiled and minified CSS -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
@@ -42,9 +41,14 @@
         </ul>
         <form class="navbar-form navbar-left" role="search">
           <div class="form-group">
-            <input type="text" class="form-control" placeholder="Search">
+          <%= form_tag root_path, method: :get do %>
+            <div class="form-group  has-feedback">
+            <label class="control-label sr-only" for="inputSuccess5">Hidden label</label>
+            <%= text_field_tag :query, params[:query], class: "form-control typeahead", placeholder: "Search" %>
+            <span class="glyphicon glyphicon-book form-control-feedback"></span>
+            </div>
+          <% end %>
           </div>
-          <button type="submit" class="btn btn-default">Submit</button>
         </form>
       </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->

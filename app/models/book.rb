@@ -16,4 +16,23 @@ class Book < ActiveRecord::Base
     greater_than_or_equal_to: 1,
     less_than_or_equal_to: 5
     }
+
+  include PgSearch
+  pg_search_scope :search,
+                  :against => [:title, :format, :rating],
+                  :using => {
+                    :tsearch => {
+                      :prefix => true,
+                      :dictionary => "english"
+                      }
+                  }
+
+  def self.query(params)
+    if params[:query].blank?
+      Book.all
+    else
+      Book.search(params[:query])
+    end
+  end
+
 end
