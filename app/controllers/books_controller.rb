@@ -1,4 +1,5 @@
 class BooksController < ApplicationController
+  before_action :authenticate_user!, :except => [:index, :show]#, :new, :edit, :update, :create, :destroy]
   respond_to :html
 
   def index

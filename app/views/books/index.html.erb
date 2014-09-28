@@ -1,11 +1,18 @@
+<style>
+.thumbnail .caption {
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+  font-size: 1.75rem;
+  color: #fff;
+  }
+</style>
+
 <script>$.vegas({src:'http://s25.postimg.org/q56rsyujz/book_collection.jpg'});</script>
 
 <div class="container">
   <div class="row">
-    <% @books.each do |book| %>
+    <% @books.order('created_at').each do |book| %>
       <div class="col-sm-6 col-md-3">
-        <div class="thumbnail">
-          <img data-src=<%= image_submit_tag('blank-book.jpg') %>
+        <div class="thumbnail" style="background-image: url('<%= book.photo %>')">
           <div class="caption">
             <h3><%= link_to book.title, book %></h3>
             <p><%= book.format %></p>
