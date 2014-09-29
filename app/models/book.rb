@@ -18,7 +18,7 @@ class Book < ActiveRecord::Base
     }
   validates :author, presence: true
 
-  default_scope { order('created_at DESC') }
+  default_scope { order('created_at ASC') }
 
   include PgSearch
   pg_search_scope :search,
