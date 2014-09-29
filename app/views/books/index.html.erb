@@ -8,6 +8,11 @@
   font-size: 1.75rem;
   color: #fff;
   }
+.thumbnail .caption .reverse{
+  text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
+  color: black;
+  margin: 0px;
+}
 </style>
 
 <script>$.vegas({src:'http://s25.postimg.org/4k1p5cxtb/book_shelf.jpg'});</script>
@@ -17,19 +22,27 @@
     <% @books.order('created_at').each do |book| %>
       <div class="col-sm-6 col-md-3">
         <div class="thumbnail" style="background-image: url('<%= book.photo %>')">
-          <div class="caption">
-            <% if book.reverse_font == true %>
-              <style>
-                .thumbnail .caption {text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;color: #000;}
-              </style>
-            <% end %>
-            <h3><%= link_to book.title, book %></h3>
-            <p><%= book.format %></p>
-            <p><%= book.author %></p>
-            <p><%= book.length %> pages</p>
-            <p>Released in <%= book.release_year %></p>
-            <p>Rating: <%= book.rating %></p>
-          </div>
+          <% if book.reverse_font == true %>
+            <div class="caption" >
+              <div class="reverse">
+                <h3><%= link_to book.title, book %></h3>
+                <p><%= book.format %></p>
+                <p><%= book.author %></p>
+                <p><%= book.length %> pages</p>
+                <p>Released in <%= book.release_year %></p>
+                <p>Rating: <%= book.rating %></p>
+              </div>
+            </div>
+            <% else %>
+            <div class="caption">
+              <h3><%= link_to book.title, book %></h3>
+              <p><%= book.format %></p>
+              <p><%= book.author %></p>
+              <p><%= book.length %> pages</p>
+              <p>Released in <%= book.release_year %></p>
+              <p>Rating: <%= book.rating %></p>
+            </div>
+          <% end %>
         </div>
       </div>
     <% end %>
