@@ -21,11 +21,12 @@
   <div class="row">
     <% @books.order('created_at').each do |book| %>
       <div class="col-sm-6 col-md-3">
+        <a href="/books/<%= book.id %>">
         <div class="thumbnail" style="background-image: url('<%= book.photo %>')">
           <% if book.reverse_font == true %>
             <div class="caption" >
               <div class="reverse">
-                <h3><%= link_to book.title, book %></h3>
+                <h3><%= book.title %></h3>
                 <p><%= book.format %></p>
                 <p><%= book.author %></p>
                 <p><%= book.length %> pages</p>
@@ -33,15 +34,15 @@
                 <p>Rating: <%= book.rating %></p>
               </div>
             </div>
-            <% else %>
+          <% else %>
             <div class="caption">
-              <h3><%= link_to book.title, book %></h3>
+              <h3><%= book.title %></h3>
               <p><%= book.format %></p>
               <p><%= book.author %></p>
               <p><%= book.length %> pages</p>
               <p>Released in <%= book.release_year %></p>
               <p>Rating: <%= book.rating %></p>
-            </div>
+            </div></a>
           <% end %>
         </div>
       </div>
