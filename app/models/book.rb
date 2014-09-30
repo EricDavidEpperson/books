@@ -30,6 +30,8 @@ class Book < ActiveRecord::Base
                       }
                   }
 
+  paginates_per 8
+
   def self.query(params)
     if params[:query].blank?
       Book.all

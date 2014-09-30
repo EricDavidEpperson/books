@@ -3,7 +3,7 @@ class BooksController < ApplicationController
   respond_to :html
 
   def index
-    @books = Book.query(params)#.page(params[:page])-for pagination
+    @books = Book.query(params).page(params[:page])
     respond_with @books
   end
 

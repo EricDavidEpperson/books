@@ -13,6 +13,7 @@
   color: black;
   margin: 0px;
 }
+a {}
 </style>
 
 <script>$.vegas({src:'http://s25.postimg.org/4k1p5cxtb/book_shelf.jpg'});</script>
@@ -48,4 +49,8 @@
       </div>
     <% end %>
   </div>
+</div>
+
+<div class="col-md-12 col-lg-12">
+  <%= paginate @books %>
 </div>
