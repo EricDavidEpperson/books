@@ -16,13 +16,14 @@ class Book < ActiveRecord::Base
     greater_than_or_equal_to: 1,
     less_than_or_equal_to: 5
     }
-  validates :author, presence: true
+  validates :author_first_name, presence: true
+  # validates :author_last_name, presence: true
 
   default_scope { order('created_at ASC') }
 
   include PgSearch
   pg_search_scope :search,
-                  :against => [:title, :format, :author],
+                  :against => [:title, :format, :author_first_name, :author_last_name],
                   :using => {
                     :tsearch => {
                       :prefix => true,
