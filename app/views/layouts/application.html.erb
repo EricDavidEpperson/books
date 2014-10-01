@@ -18,6 +18,10 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
 
   <%= csrf_meta_tags %>
+
+  <style>
+    a#github {padding: 10px;}
+  </style>
 </head>
 <body>
 
@@ -51,8 +55,11 @@
           <% end %>
           </div>
         </form>
-        
+
         <ul class="nav navbar-nav navbar-right">
+          <li><a href="http://github.com/EricDavidEpperson/books" id="github">
+            <img src="http://s25.postimg.org/km2wd5v6z/github_white_30_x_30.png"></a>
+          </li>
           <% if user_signed_in? %>
             <li><%= link_to "Log Out", destroy_user_session_path, method: :delete %></li>
           <% end %>
